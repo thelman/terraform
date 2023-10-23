@@ -66,6 +66,9 @@ resource "aws_iam_role_policy_attachment" "nodes-AmazonEC2ContainerRegistryReadO
   role       = aws_iam_role.my_nodes_iam.name
 }
 
-
+resource "aws_iam_instance_profile" "ec2_iam" {
+  name = "ec2_iam"
+  role = aws_iam_role.my_nodes_iam.name
+}
 
 
