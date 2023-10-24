@@ -14,7 +14,7 @@ provider "aws" {
 
 
 resource "aws_instance" "vm_web" {
-  ami           = "ami-0a0d9cf81c479446a"
+  ami           = "ami-0e832ed7606840c66"
   instance_type = "t2.micro"
 #  subnet_id =  data.aws_subnets.subs_eks.ids[0]
 #  subnet_id =  "subnet-062d5a9842414e733" 
@@ -24,9 +24,9 @@ resource "aws_instance" "vm_web" {
   key_name = "ec2_key"
   vpc_security_group_ids = [data.aws_security_group.ssh_group.id]
   tags = {
-    Name = "server for web"
-    Env = "dev"
-    kubernetes_io_cluster_my-eks = "owned"
+    "Name" = "server for web"
+    "Env" = "dev"
+    "kubernetes.io/cluster/my_eks" = "owned"
   }
 }
 resource "aws_eip" "lb" {

@@ -13,6 +13,7 @@ resource "aws_subnet" "public_subnets" {
  availability_zone = element(var.azs, count.index)
  tags = {
    Name = "Public Subnet ${count.index + 1}"
+  "kubernetes.io/cluster/my_eks" = "shared"
  }
 }
 resource "aws_subnet" "private_subnets" {
@@ -22,6 +23,7 @@ resource "aws_subnet" "private_subnets" {
  availability_zone = element(var.azs, count.index)
  tags = {
    Name = "Private Subnet ${count.index + 1}"
+    "kubernetes.io/cluster/my_eks" = "shared"
  }
 }
 resource "aws_internet_gateway" "gw" {

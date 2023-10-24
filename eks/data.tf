@@ -18,3 +18,6 @@ data "aws_iam_role" "role_node" {
   name = "my_nodes_iam"
 }
 
+data "aws_security_group" "ssh_group" {
+  name = "security_test"
+}
