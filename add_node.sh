@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# test
 set -o pipefail
 set -o nounset
 set -o errexit
